@@ -14,7 +14,7 @@ namespace ProductReviewManagementlinq
         {
             dataTable.Columns.Add("ProductID", typeof(int));
             dataTable.Columns.Add("UserID", typeof(int));
-            dataTable.Columns.Add("Rating", typeof(string));
+            dataTable.Columns.Add("Rating", typeof(int));
             dataTable.Columns.Add("Review", typeof(string));
             dataTable.Columns.Add("IsLike", typeof(string));
         }
@@ -45,6 +45,12 @@ namespace ProductReviewManagementlinq
             dataTable.Rows.Add(23, 17, 9, "avarage", "true");
             dataTable.Rows.Add(24, 18, 5, "Good", "true");
             dataTable.Rows.Add(25, 19, 7, "Nice", "false");
+            dataTable.Rows.Add(31, 10, 5, "Good", "true");
+            dataTable.Rows.Add(32, 10, 4, "Good", "true");
+            dataTable.Rows.Add(33, 10, 7, "Nice", "false");
+            dataTable.Rows.Add(34, 10, 2, "bad", "true");
+            dataTable.Rows.Add(35, 10, 8, "Nice", "true");
+            dataTable.Rows.Add(36, 10, 9, "Nice", "true");
             Console.WriteLine("Product Review is Added in DataTable");
             Console.WriteLine();
         }
@@ -54,7 +60,7 @@ namespace ProductReviewManagementlinq
             {
                 Console.WriteLine("\nProductID: " + table.Field<int>("ProductID"));
                 Console.WriteLine("UserID: " + table.Field<int>("UserId"));
-                Console.WriteLine("Rating: " + table.Field<string>("Rating"));
+                Console.WriteLine("Rating: " + table.Field<int>("Rating"));
                 Console.WriteLine("Review: " + table.Field<string>("Review"));
                 Console.WriteLine("IsLike: " + table.Field<string>("IsLike"));
             }
@@ -69,7 +75,7 @@ namespace ProductReviewManagementlinq
                 {
                     Console.WriteLine("\nProductID: " + table.Field<int>("ProductID"));
                     Console.WriteLine("UserID: " + table.Field<int>("UserId"));
-                    Console.WriteLine("Rating: " + table.Field<string>("Rating"));
+                    Console.WriteLine("Rating: " + table.Field<int>("Rating"));
                     Console.WriteLine("Review: " + table.Field<string>("Review"));
                     Console.WriteLine("IsLike: " + table.Field<string>("IsLike"));
                 }
@@ -89,7 +95,28 @@ namespace ProductReviewManagementlinq
                 {
                     Console.WriteLine("\nProductID: " + table.Field<int>("ProductID"));
                     Console.WriteLine("UserID: " + table.Field<int>("UserId"));
-                    Console.WriteLine("Rating: " + table.Field<string>("Rating"));
+                    Console.WriteLine("Rating: " + table.Field<int>("Rating"));
+                    Console.WriteLine("Review: " + table.Field<string>("Review"));
+                    Console.WriteLine("IsLike: " + table.Field<string>("IsLike"));
+                }
+            }
+            else
+            {
+                Console.WriteLine("Product Review Does not Found!");
+            }
+        }
+
+        public void RetrieveDataOfSpecificUserId()
+        {
+            var Product = dataTable.AsEnumerable().Where(x => x.Field<int>("UserId") == 10).OrderBy(x => x.Field<int>("Rating"));
+            int count = Product.Count();
+            if (count > 0)
+            {
+                foreach (var table in Product)
+                {
+                    Console.WriteLine("\nProductID: " + table.Field<int>("ProductID"));
+                    Console.WriteLine("UserID: " + table.Field<int>("UserId"));
+                    Console.WriteLine("Rating: " + table.Field<int>("Rating"));
                     Console.WriteLine("Review: " + table.Field<string>("Review"));
                     Console.WriteLine("IsLike: " + table.Field<string>("IsLike"));
                 }
