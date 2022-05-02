@@ -87,5 +87,13 @@ namespace ProductReviewManagementlinq
 
             }
         }
+        public void RetrieveProductIDAndReview(List<ProductReview> ProductReview)
+        {
+            var recordedData = (from list in ProductReview select new { list.ProductID, list.Review });
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine(list.ToString());
+            }
+        }
     }
 }
