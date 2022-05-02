@@ -13,7 +13,7 @@ namespace ProductReviewManagementlinq
             ProductReviewManagement productReview = new ProductReviewManagement();
             List<ProductReview> productReviewList = new List<ProductReview>()
             {
-                 new ProductReview() { ProductID = 1, UserID = 1, Rating = 1, Review = "good", IsLike = true },
+                new ProductReview() { ProductID = 1, UserID = 1, Rating = 1, Review = "good", IsLike = true },
                  new ProductReview() { ProductID = 2, UserID = 2, Rating = 1, Review = "good", IsLike = true },
                  new ProductReview() { ProductID = 3, UserID = 3, Rating = 1, Review = "good", IsLike = true },
                  new ProductReview() { ProductID = 4, UserID = 4, Rating = 4, Review = "good", IsLike = true },
@@ -46,6 +46,8 @@ namespace ProductReviewManagementlinq
                 Console.WriteLine("1: For Add Product Review");
                 Console.WriteLine("2: For Display the Product Review");
                 Console.WriteLine("3: For Retrieve the Top three Review ");
+                Console.WriteLine("4: For Retrive who's rating is greater than three");
+                Console.WriteLine("5; For Retrive count of Review Present");
                 option = int.Parse(Console.ReadLine()); 
                 switch(option)
                 {
@@ -60,6 +62,15 @@ namespace ProductReviewManagementlinq
                         break;
                     case 4:
                         productReview.SelectedRecords(productReviewList);
+                        break;
+                    case 5:
+                        productReview.RetrieveProductID(productReviewList);
+                        break;
+                    case 0:
+                        Console.WriteLine("Exit");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input");
                         break;
                 }
             }
