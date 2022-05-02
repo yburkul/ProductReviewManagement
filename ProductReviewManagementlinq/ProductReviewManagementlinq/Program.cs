@@ -13,7 +13,7 @@ namespace ProductReviewManagementlinq
             ProductReviewManagement productReview = new ProductReviewManagement();
             List<ProductReview> productReviewList = new List<ProductReview>()
             {
-                new ProductReview() { ProductID = 1, UserID = 1, Rating = 1, Review = "good", IsLike = true },
+                 new ProductReview() { ProductID = 1, UserID = 1, Rating = 1, Review = "good", IsLike = true },
                  new ProductReview() { ProductID = 2, UserID = 2, Rating = 1, Review = "good", IsLike = true },
                  new ProductReview() { ProductID = 3, UserID = 3, Rating = 1, Review = "good", IsLike = true },
                  new ProductReview() { ProductID = 4, UserID = 4, Rating = 4, Review = "good", IsLike = true },
@@ -50,6 +50,7 @@ namespace ProductReviewManagementlinq
                 Console.WriteLine("5: For Retrive count of Review Present");
                 Console.WriteLine("6: For Retrive ProductId And Review");
                 Console.WriteLine("7: For Skip Top Five Records");
+                Console.WriteLine("8: For Retrive UserId And Review");
                 option = int.Parse(Console.ReadLine()); 
                 switch(option)
                 {
@@ -73,6 +74,9 @@ namespace ProductReviewManagementlinq
                         break;
                     case 7:
                         productReview.SkipTopFive(productReviewList);
+                        break;
+                    case 8:
+                        productReview.RetrieveUserIDAndReview(productReviewList);
                         break;
                     case 0:
                         Console.WriteLine("Exit");
