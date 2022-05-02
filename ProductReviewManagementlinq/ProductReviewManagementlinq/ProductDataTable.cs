@@ -59,5 +59,45 @@ namespace ProductReviewManagementlinq
                 Console.WriteLine("IsLike: " + table.Field<string>("IsLike"));
             }
         }
+        public void IsLikeValueIsTrue()
+        {
+            var Product = dataTable.AsEnumerable().Where(x => x.Field<string>("IsLike") == "true");
+            int count = Product.Count();
+            if (count > 0)
+            {
+                foreach (var table in Product)
+                {
+                    Console.WriteLine("\nProductID: " + table.Field<int>("ProductID"));
+                    Console.WriteLine("UserID: " + table.Field<int>("UserId"));
+                    Console.WriteLine("Rating: " + table.Field<string>("Rating"));
+                    Console.WriteLine("Review: " + table.Field<string>("Review"));
+                    Console.WriteLine("IsLike: " + table.Field<string>("IsLike"));
+                }
+            }
+            else
+            {
+                Console.WriteLine("Product Review Does not Found!");
+            }
+        }
+        public void RetreveDataContainsNiceReview()
+        {
+            var Product = dataTable.AsEnumerable().Where(x => x.Field<string>("Review") == "Nice");
+            int count = Product.Count();
+            if (count > 0)
+            {
+                foreach (var table in Product)
+                {
+                    Console.WriteLine("\nProductID: " + table.Field<int>("ProductID"));
+                    Console.WriteLine("UserID: " + table.Field<int>("UserId"));
+                    Console.WriteLine("Rating: " + table.Field<string>("Rating"));
+                    Console.WriteLine("Review: " + table.Field<string>("Review"));
+                    Console.WriteLine("IsLike: " + table.Field<string>("IsLike"));
+                }
+            }
+            else
+            {
+                Console.WriteLine("Product Review Does not Found!");
+            }
+        }
     }
 }

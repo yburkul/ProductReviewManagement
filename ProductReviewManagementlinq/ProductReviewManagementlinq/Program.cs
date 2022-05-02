@@ -23,7 +23,7 @@ namespace ProductReviewManagementlinq
                  new ProductReview() { ProductID = 9, UserID = 9, Rating = 3, Review = "bad", IsLike = false },
                  new ProductReview() { ProductID = 10, UserID = 10, Rating = 3, Review = "bad", IsLike = false },
                  new ProductReview() { ProductID = 11, UserID = 11, Rating = 1, Review = "good", IsLike = true },
-                 new ProductReview() { ProductID = 12, UserID = 12, Rating = 5, Review = "good", IsLike = true },
+                 new ProductReview() { ProductID = 12, UserID = 12, Rating = 5, Review = "Nice", IsLike = true },
                  new ProductReview() { ProductID = 13, UserID = 13, Rating = 3, Review = "good", IsLike = true },
                  new ProductReview() { ProductID = 14, UserID = 14, Rating = 2, Review = "very bad", IsLike = false },
                  new ProductReview() { ProductID = 15, UserID = 15, Rating = 2, Review = "bad", IsLike = false },
@@ -52,8 +52,10 @@ namespace ProductReviewManagementlinq
                 Console.WriteLine("8: For Retrive UserId And Review");
                 Console.WriteLine("9: For Add Product Review In Data Table");
                 Console.WriteLine("10: For Display The Data Table Product Review");
-                Console.WriteLine("11: For Retrieve records from the Data Table who’s IsLike Value is True");
+                Console.WriteLine("11: For Retrieve records from the Product Review who’s IsLike Value is True");
                 Console.WriteLine("12: For Average Rating of each Product ID");
+                Console.WriteLine("13: For Retrieve records from the DataTable who’s IsLike Value is True");
+                Console.WriteLine("14: For Retrieve records from the DataTable who’s review massage contains Nice");
                 option = int.Parse(Console.ReadLine()); 
                 switch(option)
                 {
@@ -92,6 +94,12 @@ namespace ProductReviewManagementlinq
                         break;
                     case 12:
                         productReview.AvrageRatingEachProductID(productReviewList);
+                        break;
+                    case 13:
+                        productDataTable.IsLikeValueIsTrue();                        
+                        break;
+                    case 14:
+                        productDataTable.RetreveDataContainsNiceReview();
                         break;
                     case 0:
                         Console.WriteLine("Exit");
