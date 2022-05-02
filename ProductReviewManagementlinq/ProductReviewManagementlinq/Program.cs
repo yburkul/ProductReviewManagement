@@ -85,6 +85,9 @@ namespace ProductReviewManagementlinq
                     case 10:
                         productDataTable.DisplayDataTable();
                         break;
+                    case 11:
+                        productReview.IsLikeValueIsTrue(productReviewList);
+                        break;
                     case 0:
                         Console.WriteLine("Exit");
                         break;

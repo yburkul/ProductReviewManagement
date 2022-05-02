@@ -48,8 +48,7 @@ namespace ProductReviewManagementlinq
             foreach (var ProductReview in ProductReviewList)
             {
                 Console.WriteLine("Product ID: {0}, \nUser ID: {1}, \nRating: {2}, \nReview: {3}, " +
-                    "\nIs Like: {4} \n", ProductReview.ProductID, ProductReview.UserID, ProductReview.Rating, ProductReview.Review,
-                     ProductReview.IsLike);
+                    "\nIs Like: {4} \n", ProductReview.ProductID, ProductReview.UserID, ProductReview.Rating, ProductReview.Review, ProductReview.IsLike);
             }
         }
         public void RetrieveTopThreeRecords(List<ProductReview> ProductReviewList)
@@ -59,8 +58,7 @@ namespace ProductReviewManagementlinq
             foreach(var recordedRecord in recordedData)
             {
                 Console.WriteLine("Product ID: {0}, \nUser ID: {1}, \nRating: {2}, \nReview: {3}, " +
-                    "\nIs Like: {4} \n", recordedRecord.ProductID, recordedRecord.UserID, recordedRecord.Rating, recordedRecord.Review,
-                     recordedRecord.IsLike);
+                    "\nIs Like: {4} \n", recordedRecord.ProductID, recordedRecord.UserID, recordedRecord.Rating, recordedRecord.Review, recordedRecord.IsLike);
             }
         }
         public void SelectedRecords(List<ProductReview> ProductReview)
@@ -84,7 +82,6 @@ namespace ProductReviewManagementlinq
             foreach (var list in recordedData)
             {
                 Console.WriteLine("ProductID:" + list.ProductID + "--->" + "Count: " + list.Count);
-
             }
         }
         public void RetrieveProductIDAndReview(List<ProductReview> ProductReview)
@@ -110,6 +107,15 @@ namespace ProductReviewManagementlinq
             foreach (var list in recordedData)
             {
                 Console.WriteLine(list.ToString());
+            }
+        }
+        public void IsLikeValueIsTrue(List<ProductReview> ProductReview)
+        {
+            var RecordedData = (from productReview in ProductReview where (productReview.IsLike == true) select productReview);
+            foreach (var list in RecordedData)
+            {
+                Console.WriteLine("ProductID:- " + list.ProductID + " " + "UserID:- " + list.UserID
+                    + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "IsLike:- " + list.IsLike);
             }
         }
     }
