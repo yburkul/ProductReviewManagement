@@ -41,7 +41,7 @@ namespace ProductReviewManagementlinq
             ProductReviewList.Add(new ProductReview() { ProductID = 23, UserID = 23, Rating = 2, Review = "good", IsLike = true });
             ProductReviewList.Add(new ProductReview() { ProductID = 24, UserID = 24, Rating = 3, Review = "average", IsLike = true });
             ProductReviewList.Add(new ProductReview() { ProductID = 25, UserID = 25, Rating = 2, Review = "average", IsLike = true });
-            DisplayProductReviewList(ProductReviewList);
+            Console.WriteLine("Product Review is Added");
         }
         public void DisplayProductReviewList(List<ProductReview> ProductsReviewList)
         {
@@ -52,8 +52,16 @@ namespace ProductReviewManagementlinq
                      ProductReview.IsLike);
             }
         }
+        public void RetrieveTopThreeRecords(List<ProductReview> ProductReviewList)
+        {
+            var recordedData = (from productReviews in ProductReviewList orderby productReviews.Rating descending select productReviews).Take(3).ToList();
+
+            foreach(var recordedRecord in recordedData)
+            {
+                Console.WriteLine("Product ID: {0}, \nUser ID: {1}, \nRating: {2}, \nReview: {3}, " +
+                    "\nIs Like: {4} \n", recordedRecord.ProductID, recordedRecord.UserID, recordedRecord.Rating, recordedRecord.Review,
+                     recordedRecord.IsLike);
+            }
+        }
     }
 }
-
-
-
