@@ -19,7 +19,7 @@ namespace ProductReviewManagementlinq
             ProductReviewList.Add(new ProductReview() { ProductID = 1, UserID = 1, Rating = 1, Review = "good", IsLike = true });
             ProductReviewList.Add(new ProductReview() { ProductID = 2, UserID = 2, Rating = 1, Review = "good", IsLike = true });
             ProductReviewList.Add(new ProductReview() { ProductID = 3, UserID = 3, Rating = 1, Review = "good", IsLike = true });
-            ProductReviewList.Add(new ProductReview() { ProductID = 4, UserID = 4, Rating = 2, Review = "bad", IsLike = false });
+            ProductReviewList.Add(new ProductReview() { ProductID = 4, UserID = 4, Rating = 4, Review = "good", IsLike = true });
             ProductReviewList.Add(new ProductReview() { ProductID = 5, UserID = 5, Rating = 2, Review = "nice", IsLike = false });
             ProductReviewList.Add(new ProductReview() { ProductID = 6, UserID = 6, Rating = 2, Review = "bad", IsLike = false });
             ProductReviewList.Add(new ProductReview() { ProductID = 7, UserID = 7, Rating = 2, Review = "bad", IsLike = false });
@@ -39,7 +39,7 @@ namespace ProductReviewManagementlinq
             ProductReviewList.Add(new ProductReview() { ProductID = 21, UserID = 21, Rating = 2, Review = "bad", IsLike = false });
             ProductReviewList.Add(new ProductReview() { ProductID = 22, UserID = 22, Rating = 2, Review = "bad", IsLike = false });
             ProductReviewList.Add(new ProductReview() { ProductID = 23, UserID = 23, Rating = 2, Review = "good", IsLike = true });
-            ProductReviewList.Add(new ProductReview() { ProductID = 24, UserID = 24, Rating = 3, Review = "average", IsLike = true });
+            ProductReviewList.Add(new ProductReview() { ProductID = 24, UserID = 24, Rating = 4, Review = "average", IsLike = true });
             ProductReviewList.Add(new ProductReview() { ProductID = 25, UserID = 25, Rating = 2, Review = "average", IsLike = true });
             Console.WriteLine("Product Review is Added");
         }
@@ -61,6 +61,20 @@ namespace ProductReviewManagementlinq
                 Console.WriteLine("Product ID: {0}, \nUser ID: {1}, \nRating: {2}, \nReview: {3}, " +
                     "\nIs Like: {4} \n", recordedRecord.ProductID, recordedRecord.UserID, recordedRecord.Rating, recordedRecord.Review,
                      recordedRecord.IsLike);
+            }
+        }
+        public void SelectedRecords(List<ProductReview> ProductReview)
+        {
+            var recordedData = from productReviews in ProductReview
+                               where (productReviews.ProductID == 1 ||
+                                     productReviews.ProductID == 4 ||
+                                     productReviews.ProductID == 9) && (productReviews.Rating > 3)
+                               select productReviews;
+
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine("ProductId:- " + list.ProductID + " " + "UserId:- " + list.UserID
+                    + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "IsLike :- " + list.IsLike);
             }
         }
     }
