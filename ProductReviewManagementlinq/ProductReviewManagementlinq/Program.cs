@@ -5,12 +5,11 @@ namespace ProductReviewManagementlinq
 {
     class Program
     {
-        private static readonly List<ProductReview> productReviewList;
-
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome in Product Review Management");
             ProductReviewManagement productReview = new ProductReviewManagement();
+            ProductDataTable productDataTable = new ProductDataTable();
             List<ProductReview> productReviewList = new List<ProductReview>()
             {
                  new ProductReview() { ProductID = 1, UserID = 1, Rating = 1, Review = "good", IsLike = true },
@@ -51,6 +50,8 @@ namespace ProductReviewManagementlinq
                 Console.WriteLine("6: For Retrive ProductId And Review");
                 Console.WriteLine("7: For Skip Top Five Records");
                 Console.WriteLine("8: For Retrive UserId And Review");
+                Console.WriteLine("9: For Add Product Review In Data Table");
+                Console.WriteLine("10: For Display The Data Table Product Review");
                 option = int.Parse(Console.ReadLine()); 
                 switch(option)
                 {
@@ -77,6 +78,12 @@ namespace ProductReviewManagementlinq
                         break;
                     case 8:
                         productReview.RetrieveUserIDAndReview(productReviewList);
+                        break;
+                    case 9:                        
+                        productDataTable.AddProductReviewInDataTable();
+                        break;
+                    case 10:
+                        productDataTable.DisplayDataTable();
                         break;
                     case 0:
                         Console.WriteLine("Exit");
