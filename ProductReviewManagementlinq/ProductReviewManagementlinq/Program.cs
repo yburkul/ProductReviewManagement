@@ -52,6 +52,8 @@ namespace ProductReviewManagementlinq
                 Console.WriteLine("8: For Retrive UserId And Review");
                 Console.WriteLine("9: For Add Product Review In Data Table");
                 Console.WriteLine("10: For Display The Data Table Product Review");
+                Console.WriteLine("11: For Retrieve records from the Data Table who’s IsLike Value is True");
+                Console.WriteLine("12: For Average Rating of each Product ID");
                 option = int.Parse(Console.ReadLine()); 
                 switch(option)
                 {
@@ -87,6 +89,9 @@ namespace ProductReviewManagementlinq
                         break;
                     case 11:
                         productReview.IsLikeValueIsTrue(productReviewList);
+                        break;
+                    case 12:
+                        productReview.AvrageRatingEachProductID(productReviewList);
                         break;
                     case 0:
                         Console.WriteLine("Exit");
